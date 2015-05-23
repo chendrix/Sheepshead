@@ -10,7 +10,7 @@
 
 @interface Game : NSObject
 
-@property (nonatomic, copy, readonly) NSSet *players;
+@property (nonatomic, copy, readonly) NSArray *players;
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
