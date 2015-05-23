@@ -52,7 +52,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     
-    Hand *hand = [self.game.hands objectAtIndex:indexPath.row];
+    Hand *hand = self.game.hands[indexPath.row];
     cell.textLabel.text = hand.description;
     
     return cell;

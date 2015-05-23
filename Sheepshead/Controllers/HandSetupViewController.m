@@ -53,10 +53,10 @@
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     if (pickerView == self.pickerPicker) {
-        return [[[self pickerChoices] objectAtIndex:row] name];
+        return [[self pickerChoices][row] name];
     }
     if (pickerView == self.partnerPicker) {
-        return [[[self partnerChoices] objectAtIndex:row] name];
+        return [[self partnerChoices][row] name];
     }
     return @"";
 }
@@ -64,10 +64,10 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if (pickerView == self.pickerPicker) {
-        self.selectedPicker = [[self pickerChoices] objectAtIndex:row];
+        self.selectedPicker = [self pickerChoices][row];
     }
     if (pickerView == self.partnerPicker) {
-        self.selectedPartner = [[self partnerChoices] objectAtIndex:row];
+        self.selectedPartner = [self partnerChoices][row];
     }
 }
 

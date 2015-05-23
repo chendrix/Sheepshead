@@ -26,14 +26,11 @@
 
 - (IBAction)createGame:(id)sender {
     
-    NSArray *playerNames = [[NSArray alloc]
-                            initWithObjects:
-                            self.player1Name.text,
-                            self.player2Name.text,
-                            self.player3Name.text,
-                            self.player4Name.text,
-                            self.player5Name.text,
-                            nil];
+    NSArray *playerNames = @[self.player1Name.text,
+                             self.player2Name.text,
+                             self.player3Name.text,
+                             self.player4Name.text,
+                             self.player5Name.text];
     
     self.game = [[Game alloc] initWithPlayerNames:playerNames];
     
