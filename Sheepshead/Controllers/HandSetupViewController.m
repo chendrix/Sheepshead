@@ -23,6 +23,14 @@
 
 @implementation HandSetupViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.selectedPicker = [self pickerChoices][0];
+    self.selectedPartner = [self partnerChoices][0];
+}
+
 - (IBAction)createHand:(id)sender {
     [self.game createNewHandWithPicker:self.selectedPicker partner:self.selectedPartner];
     
