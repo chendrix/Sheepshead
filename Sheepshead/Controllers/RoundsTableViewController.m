@@ -8,6 +8,7 @@
 
 #import "RoundsTableViewController.h"
 #import "GameSetupViewController.h"
+#import "HandSetupViewController.h"
 #import "Game.h"
 #import "Hand.h"
 
@@ -46,7 +47,7 @@
     
     UINavigationItem *navItem = self.navigationItem;
 
-    UIBarButtonItem *addNewRoundButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewHand:)];
+    UIBarButtonItem *addNewRoundButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(setupNewHand:)];
     
     navItem.rightBarButtonItem = addNewRoundButtonItem;
 }
@@ -68,10 +69,18 @@
 
 #pragma mark - Actions
 
-- (IBAction)addNewHand:(id)sender
+- (IBAction)setupNewHand:(id)sender
 {
-    [self.game createNewHand];
+    HandSetupViewController *hsvc = [[HandSetupViewController alloc] init];
     
+    hsvc.game = self.game;
+    hsvc.roundsTableViewController = self;
+    
+    [self presentViewController:hsvc animated:YES completion:NULL];
+}
+
+- (void)didCreateNewHand
+{
     NSInteger lastRow = self.game.handsCount - 1;
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];

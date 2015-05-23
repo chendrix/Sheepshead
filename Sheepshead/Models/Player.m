@@ -11,6 +11,7 @@
 @interface Player ()
 
 @property (nonatomic, copy, readwrite) NSString *name;
+@property (nonatomic, strong, readwrite) NSMutableArray *hands;
 
 @end
 
@@ -21,6 +22,7 @@
     self = [super init];
     if (self) {
         self.name = name;
+        self.hands = [NSMutableArray array];
     }
     return self;
 }

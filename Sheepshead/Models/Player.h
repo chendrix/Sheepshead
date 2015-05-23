@@ -11,6 +11,7 @@
 @interface Player : NSObject
 
 @property (nonatomic, copy, readonly) NSString *name;
+@property (nonatomic, strong, readonly) NSMutableArray *hands;
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;

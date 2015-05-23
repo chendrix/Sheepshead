@@ -34,7 +34,7 @@
         }
         
         self.players = players;
-        self.hands = [[NSMutableArray alloc] init];
+        self.hands = [NSMutableArray array];
     }
     return self;
 }
@@ -44,9 +44,9 @@
     return [NSString stringWithFormat:@"Game: %@", [self.playerDescriptions componentsJoinedByString:@", "]];
 }
 
-- (Hand *)createNewHand
+- (Hand *)createNewHandWithPicker:(Player *)picker partner:(Player *)partner
 {
-    Hand *newHand = [[Hand alloc] initForGame:self withNumber:self.nextHandNumber];
+    Hand *newHand = [[Hand alloc] initForGame:self withPlayers:self.players picker:picker partner:partner];
     [self.hands addObject:newHand];
     
     return newHand;
@@ -56,8 +56,7 @@
 
 - (NSArray *)playerDescriptions
 {
-    __block int i;
-    i = 0;
+    __block int i = 0;
     
     NSArray *playerDescriptions = _.array(self.players).map(^(Player *player) {
         i++;
@@ -69,9 +68,18 @@
     return playerDescriptions;
 }
 
-- (NSUInteger)nextHandNumber
+- (NSArray *)handDescriptions
 {
-    return [self.hands count] + 1;
+    __block int i = 0;
+    
+    NSArray *handDescriptions = _.array(self.hands).map(^(Hand *hand) {
+        i++;
+        
+        NSString *handDescription = [NSString stringWithFormat:@"Hand %i - %@", i, hand.description];
+        return handDescription;
+    }).unwrap;
+    
+    return handDescriptions;
 }
 
 - (NSUInteger)handsCount

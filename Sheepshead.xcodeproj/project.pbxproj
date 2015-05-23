@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8307D2131B10795900905254 /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = 8307D2121B10795900905254 /* Hand.m */; };
 		8307D2161B107CE700905254 /* RoundsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8307D2151B107CE700905254 /* RoundsTableViewController.m */; };
+		8307D21A1B10F38400905254 /* HandSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8307D2181B10F38400905254 /* HandSetupViewController.m */; };
+		8307D21B1B10F38400905254 /* HandSetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8307D2191B10F38400905254 /* HandSetupViewController.xib */; };
 		8323C95D1B10252A002961F3 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 8323C9561B10252A002961F3 /* .gitkeep */; };
 		8323C95E1B10252A002961F3 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 8323C9581B10252A002961F3 /* .gitkeep */; };
 		8323C95F1B10252A002961F3 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 8323C95A1B10252A002961F3 /* .gitkeep */; };
@@ -43,6 +45,9 @@
 		8307D2121B10795900905254 /* Hand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hand.m; sourceTree = "<group>"; };
 		8307D2141B107CE700905254 /* RoundsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundsTableViewController.h; sourceTree = "<group>"; };
 		8307D2151B107CE700905254 /* RoundsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundsTableViewController.m; sourceTree = "<group>"; };
+		8307D2171B10F38400905254 /* HandSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandSetupViewController.h; sourceTree = "<group>"; };
+		8307D2181B10F38400905254 /* HandSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandSetupViewController.m; sourceTree = "<group>"; };
+		8307D2191B10F38400905254 /* HandSetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HandSetupViewController.xib; sourceTree = "<group>"; };
 		8323C9561B10252A002961F3 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		8323C9581B10252A002961F3 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		8323C95A1B10252A002961F3 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -96,6 +101,9 @@
 				8323C96B1B1067BD002961F3 /* GameSetupViewController.xib */,
 				8307D2141B107CE700905254 /* RoundsTableViewController.h */,
 				8307D2151B107CE700905254 /* RoundsTableViewController.m */,
+				8307D2171B10F38400905254 /* HandSetupViewController.h */,
+				8307D2181B10F38400905254 /* HandSetupViewController.m */,
+				8307D2191B10F38400905254 /* HandSetupViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -299,6 +307,7 @@
 				8323C9601B10252A002961F3 /* .gitkeep in Resources */,
 				833E379D1B0F04B900170212 /* Images.xcassets in Resources */,
 				8323C96D1B1067BD002961F3 /* GameSetupViewController.xib in Resources */,
+				8307D21B1B10F38400905254 /* HandSetupViewController.xib in Resources */,
 				8323C95E1B10252A002961F3 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +366,7 @@
 				8307D2161B107CE700905254 /* RoundsTableViewController.m in Sources */,
 				833E379B1B0F04B900170212 /* AppDelegate.m in Sources */,
 				833E37981B0F04B900170212 /* main.m in Sources */,
+				8307D21A1B10F38400905254 /* HandSetupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

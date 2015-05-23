@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) Game *game;
 
+- (void)didCreateNewHand;
+
 @end

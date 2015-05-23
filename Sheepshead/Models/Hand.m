@@ -7,28 +7,38 @@
 //
 
 #import "Hand.h"
+#import "Player.h"
 
 @interface Hand ()
 
-@property (nonatomic, readwrite) NSUInteger number;
 @property (nonatomic, weak, readwrite) Game *game;
+@property (nonatomic, weak, readwrite) NSArray *players;
+@property (nonatomic, weak, readwrite) Player *picker;
+@property (nonatomic, weak, readwrite) Player *partner;
 
 @end
 
 @implementation Hand
 
-- (instancetype)initForGame:(Game *)game withNumber:(NSUInteger)number
+- (instancetype)initForGame:(Game *)game withPlayers:(NSArray *)players picker:(Player *)picker partner:(Player *)partner
 {
     self = [super init];
     if (self) {
         self.game = game;
-        self.number = number;
+        self.players = players;
+        
+        for (Player *player in self.players) {
+            [player.hands addObject:self];
+        }
+        
+        self.picker = picker;
+        self.partner = partner;
     }
     return self;
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"Hand %lu", self.number];
+    return [NSString stringWithFormat:@"Hand - Picker: %@, Partner: %@", [self.picker name], [self.partner name]];
 }
 @end

@@ -9,14 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @class Game;
+@class Player;
 
 @interface Hand : NSObject
 
-@property (nonatomic, readonly) NSUInteger number;
 @property (nonatomic, weak, readonly) Game *game;
+@property (nonatomic, weak, readonly) NSArray *players;
+@property (nonatomic, weak, readonly) Player *picker;
+@property (nonatomic, weak, readonly) Player *partner;
+
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initForGame:(Game *)game withNumber:(NSUInteger)number NS_DESIGNATED_INITIALIZER;
+- (instancetype)initForGame:(Game *)game withPlayers:(NSArray *)players  picker:(Player *)picker partner:(Player *)partner NS_DESIGNATED_INITIALIZER;
 
 @end
