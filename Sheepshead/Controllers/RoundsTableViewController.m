@@ -14,21 +14,9 @@
 
 @interface RoundsTableViewController ()
 
-@property (nonatomic, strong) GameSetupViewController *gameSetupViewController;
 @end
 
 @implementation RoundsTableViewController
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        GameSetupViewController *gameSetupViewController = [[GameSetupViewController alloc] init];
-        gameSetupViewController.roundsTableViewController = self;
-        self.gameSetupViewController = gameSetupViewController;
-    }
-    return self;
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -43,7 +31,10 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
-    [self presentViewController:self.gameSetupViewController animated:YES completion:NULL];
+    GameSetupViewController *gameSetupViewController = [[GameSetupViewController alloc] init];
+    gameSetupViewController.roundsTableViewController = self;
+
+    [self presentViewController:gameSetupViewController animated:YES completion:NULL];
     
     UINavigationItem *navItem = self.navigationItem;
 
@@ -82,9 +73,7 @@
 - (void)didCreateNewHand
 {
     NSInteger lastRow = self.game.handsCount - 1;
-    
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
-    
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
 }
 
