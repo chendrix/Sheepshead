@@ -7,6 +7,7 @@
 //
 
 #import "GameSetupViewController.h"
+#import "RoundsTableViewController.h"
 #import "Game.h"
 
 @interface GameSetupViewController ()
@@ -35,7 +36,10 @@
                             nil];
     
     self.game = [[Game alloc] initWithPlayerNames:playerNames];
-    NSLog(@"Game: \n%@", self.game.description);
+    
+    self.roundsTableViewController.game = self.game;
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "GameSetupViewController.h"
+#import "RoundsTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,9 +20,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    GameSetupViewController *gameSetupViewController = [[GameSetupViewController alloc] init];
     
-    self.window.rootViewController = gameSetupViewController;
+    RoundsTableViewController *roundsTableViewController = [RoundsTableViewController new];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:roundsTableViewController];
+    
+    self.window.rootViewController = navController;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

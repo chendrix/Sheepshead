@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class RoundsTableViewController;
+
 @interface GameSetupViewController : UIViewController
+
+@property (nonatomic, weak) RoundsTableViewController *roundsTableViewController;
 
 @end
