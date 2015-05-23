@@ -35,7 +35,7 @@
                             nil];
     
     self.game = [[Game alloc] initWithPlayerNames:playerNames];
-    NSLog(@"Game - %@", self.game.description);
+    NSLog(@"Game: \n%@", self.game.description);
 }
 
 @end

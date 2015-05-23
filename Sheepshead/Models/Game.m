@@ -32,17 +32,26 @@
         self.players = players;
     }
     return self;
-
 }
 
 - (NSString *)description
 {
-    NSArray *playerDescriptions = _.array(self.players).map(^(Player *player) {
-        return player.description;
-    }).unwrap;
-    
-    return [playerDescriptions componentsJoinedByString:@"\n"];
+    return [self.playerDescriptions componentsJoinedByString:@"\n"];
 }
 
+- (NSArray *)playerDescriptions
+{
+    __block int i;
+    i = 0;
+    
+    NSArray *playerDescriptions = _.array(self.players).map(^(Player *player) {
+        i++;
+        
+        NSString *playerDescription = [NSString stringWithFormat:@"Player %i - %@", i, player.description];
+        return playerDescription;
+    }).unwrap;
+    
+    return playerDescriptions;
+}
 
 @end
