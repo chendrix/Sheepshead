@@ -9,6 +9,7 @@
 #import "RoundsTableViewController.h"
 #import "GameSetupViewController.h"
 #import "HandSetupViewController.h"
+#import "HandResultViewController.h"
 #import "Game.h"
 #import "Hand.h"
 
@@ -56,6 +57,16 @@
     cell.textLabel.text = hand.description;
     
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    HandResultViewController *handResultViewController = [[HandResultViewController alloc] init];
+    handResultViewController.hand = self.game.hands[indexPath.row];
+    
+    [self.navigationController pushViewController:handResultViewController animated:YES];
 }
 
 #pragma mark - Actions

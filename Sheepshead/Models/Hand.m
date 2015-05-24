@@ -15,6 +15,7 @@
 @property (nonatomic, weak, readwrite) NSArray *players;
 @property (nonatomic, weak, readwrite) Player *picker;
 @property (nonatomic, weak, readwrite) Player *partner;
+@property (nonatomic) Boolean pickersWon;
 
 @end
 
@@ -35,6 +36,16 @@
         self.partner = partner;
     }
     return self;
+}
+
+- (void)pickingTeamWon
+{
+    self.pickersWon = true;
+}
+
+- (void)opposingTeamWon
+{
+    self.pickersWon = false;
 }
 
 - (NSString *)description

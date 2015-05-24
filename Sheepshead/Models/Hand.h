@@ -18,9 +18,10 @@
 @property (nonatomic, weak, readonly) Player *picker;
 @property (nonatomic, weak, readonly) Player *partner;
 
-
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initForGame:(Game *)game withPlayers:(NSArray *)players  picker:(Player *)picker partner:(Player *)partner NS_DESIGNATED_INITIALIZER;
+- (void)pickingTeamWon;
+- (void)opposingTeamWon;
 
 @end
