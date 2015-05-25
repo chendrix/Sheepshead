@@ -27,6 +27,8 @@
 		833E379D1B0F04B900170212 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 833E379C1B0F04B900170212 /* Images.xcassets */; };
 		833E37A01B0F04B900170212 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833E379E1B0F04B900170212 /* LaunchScreen.xib */; };
 		833E37AC1B0F04B900170212 /* SheepsheadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 833E37AB1B0F04B900170212 /* SheepsheadTests.m */; };
+		83B845311B12A5E600B8F52D /* ScoresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B845301B12A5E600B8F52D /* ScoresTableViewController.m */; };
+		83B845341B12A8B200B8F52D /* ScoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B845331B12A8B200B8F52D /* ScoreTableViewCell.m */; };
 		AA2A28D43E3EE47ACACBF02D /* libPods-Sheepshead.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0ACE04DE9CDF63B35DCE87E /* libPods-Sheepshead.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,10 @@
 		833E37A51B0F04B900170212 /* SheepsheadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SheepsheadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		833E37AA1B0F04B900170212 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		833E37AB1B0F04B900170212 /* SheepsheadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SheepsheadTests.m; sourceTree = "<group>"; };
+		83B8452F1B12A5E600B8F52D /* ScoresTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoresTableViewController.h; sourceTree = "<group>"; };
+		83B845301B12A5E600B8F52D /* ScoresTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoresTableViewController.m; sourceTree = "<group>"; };
+		83B845321B12A8B200B8F52D /* ScoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreTableViewCell.h; sourceTree = "<group>"; };
+		83B845331B12A8B200B8F52D /* ScoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTableViewCell.m; sourceTree = "<group>"; };
 		F0ACE04DE9CDF63B35DCE87E /* libPods-Sheepshead.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sheepshead.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,6 +118,8 @@
 				8307D21C1B11232100905254 /* HandResultViewController.h */,
 				8307D21D1B11232100905254 /* HandResultViewController.m */,
 				8307D21E1B11232100905254 /* HandResultViewController.xib */,
+				83B8452F1B12A5E600B8F52D /* ScoresTableViewController.h */,
+				83B845301B12A5E600B8F52D /* ScoresTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -142,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				8323C95C1B10252A002961F3 /* .gitkeep */,
+				83B845321B12A8B200B8F52D /* ScoreTableViewCell.h */,
+				83B845331B12A8B200B8F52D /* ScoreTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -370,8 +380,10 @@
 			files = (
 				8307D2131B10795900905254 /* Hand.m in Sources */,
 				8323C9661B10256F002961F3 /* Player.m in Sources */,
+				83B845341B12A8B200B8F52D /* ScoreTableViewCell.m in Sources */,
 				8323C9631B10255B002961F3 /* Game.m in Sources */,
 				8307D21F1B11232100905254 /* HandResultViewController.m in Sources */,
+				83B845311B12A5E600B8F52D /* ScoresTableViewController.m in Sources */,
 				8323C96C1B1067BD002961F3 /* GameSetupViewController.m in Sources */,
 				8307D2161B107CE700905254 /* RoundsTableViewController.m in Sources */,
 				833E379B1B0F04B900170212 /* AppDelegate.m in Sources */,
@@ -496,8 +508,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Sheepshead/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -507,8 +521,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Sheepshead/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

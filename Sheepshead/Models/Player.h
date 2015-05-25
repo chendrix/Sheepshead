@@ -16,5 +16,6 @@
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithName:(NSString *)name NS_DESIGNATED_INITIALIZER;
+- (NSString *)initials;
 
 @end

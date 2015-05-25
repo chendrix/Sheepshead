@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RoundsTableViewController.h"
+#import "ScoresTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,8 +25,16 @@
     RoundsTableViewController *roundsTableViewController = [RoundsTableViewController new];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:roundsTableViewController];
+    navController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Hands" image:nil tag:0];
     
-    self.window.rootViewController = navController;
+    ScoresTableViewController *scoresViewController = [ScoresTableViewController new];
+    roundsTableViewController.scoresViewController = scoresViewController;
+    scoresViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Score" image:nil tag:1];
+    
+    UITabBarController *tabBarController = [UITabBarController new];
+    tabBarController.viewControllers = @[navController, scoresViewController];
+    
+    self.window.rootViewController = tabBarController;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

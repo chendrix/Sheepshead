@@ -17,11 +17,14 @@
 @property (nonatomic, weak, readonly) NSArray *players;
 @property (nonatomic, weak, readonly) Player *picker;
 @property (nonatomic, weak, readonly) Player *partner;
+@property (nonatomic, readonly) Boolean isFinished;
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initForGame:(Game *)game withPlayers:(NSArray *)players  picker:(Player *)picker partner:(Player *)partner NS_DESIGNATED_INITIALIZER;
 - (void)pickingTeamWon;
 - (void)opposingTeamWon;
+- (Boolean)isFinished;
+- (NSInteger)scoreForPlayer:(Player *)player;
 
 @end

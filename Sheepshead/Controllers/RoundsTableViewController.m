@@ -10,6 +10,7 @@
 #import "GameSetupViewController.h"
 #import "HandSetupViewController.h"
 #import "HandResultViewController.h"
+#import "ScoresTableViewController.h"
 #import "Game.h"
 #import "Hand.h"
 
@@ -88,5 +89,10 @@
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
 }
 
+- (void)setGame:(Game *)game
+{
+    _game = game;
+    self.scoresViewController.game = game;
+}
 
 @end

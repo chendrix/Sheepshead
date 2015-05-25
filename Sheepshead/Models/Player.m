@@ -32,4 +32,9 @@
     return self.name;
 }
 
+- (NSString *)initials
+{
+    return self.name;
+}
+
 @end

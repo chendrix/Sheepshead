@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class Game;
+@class ScoresTableViewController;
 
 @interface RoundsTableViewController : UITableViewController
 
 @property (nonatomic, strong) Game *game;
+@property (nonatomic, strong) ScoresTableViewController *scoresViewController;
 
 - (void)didCreateNewHand;
 
