@@ -36,11 +36,15 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.game.players count];
+    return [self.game.players count] + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.game.hands count];
+    if (section == 0) {
+        return [self.game.players count];
+    } else {
+        return [self.game.hands count];
+    }
 }
 
 #pragma mark - Table view delegate
@@ -48,16 +52,31 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ScoreTableViewCell" forIndexPath:indexPath];
     
-    NSInteger handIndex = [indexPath row];
-    NSInteger playerIndex = [indexPath section];
-    
-    Hand *hand = self.game.hands[handIndex];
-    Player *player = self.game.players[playerIndex];
-    
-    NSInteger score = [hand scoreForPlayer:player];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"Hand %ld", handIndex + 1];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", (long)score];
+    if ([indexPath section] == 0) {
+        // Game totals
+        NSInteger playerIndex = [indexPath row];
+        
+        Player *player = self.game.players[playerIndex];
+        
+        NSInteger score = [self.game scoreForPlayer:player];
+        
+        cell.textLabel.text = player.name;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", (long)score];
+        
+    } else {
+        // Single players
+        
+        NSInteger handIndex = [indexPath row];
+        NSInteger playerIndex = [indexPath section] - 1;
+        
+        Hand *hand = self.game.hands[handIndex];
+        Player *player = self.game.players[playerIndex];
+        
+        NSInteger score = [hand scoreForPlayer:player];
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"Hand %ld", handIndex + 1];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", (long)score];
+    }
     
     // Configure the cell...
     
@@ -66,8 +85,12 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    Player *player = self.game.players[section];
-    return [NSString stringWithFormat:@"%@", player.name];
+    if (section == 0) {
+        return @"Game";
+    } else {
+        Player *player = self.game.players[section - 1];
+        return [NSString stringWithFormat:@"%@", player.name];
+    }
 }
 
 @end

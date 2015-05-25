@@ -21,5 +21,6 @@
 - (instancetype)initWithPlayerNames:(NSArray *)playerNames NS_DESIGNATED_INITIALIZER;
 - (Hand *)createNewHandWithPicker:(Player *)picker partner:(Player *)partner;
 - (NSUInteger)handsCount;
+- (NSInteger)scoreForPlayer:(Player *)player;
 
 @end

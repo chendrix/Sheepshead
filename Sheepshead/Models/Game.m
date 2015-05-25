@@ -87,4 +87,14 @@
     return [self.hands count];
 }
 
+- (NSInteger)scoreForPlayer:(Player *)player
+{
+    NSInteger sum = 0;
+    for (Hand *hand in self.hands) {
+        sum += [hand scoreForPlayer:player];
+    }
+
+    return sum;
+}
+
 @end
