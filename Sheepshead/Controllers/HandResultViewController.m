@@ -11,18 +11,24 @@
 
 @interface HandResultViewController ()
 
+@property (weak, nonatomic) IBOutlet UISwitch *losersMadeSchneiderSwitch;
+
 @end
 
 @implementation HandResultViewController
 
 - (IBAction)pickersWon:(id)sender {
-    [self.hand pickingTeamWon];
+    
+    [self.hand pickingTeamWon:YES losersMadeSchneider:[self losersMadeSchneider]];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (IBAction)opponentsWon:(id)sender {
-    [self.hand opposingTeamWon];
+        [self.hand pickingTeamWon:NO losersMadeSchneider:[self losersMadeSchneider]];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+- (Boolean)losersMadeSchneider {
+    return self.losersMadeSchneiderSwitch.on;
+}
 
 @end

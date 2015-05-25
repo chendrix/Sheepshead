@@ -17,7 +17,7 @@
 @property (nonatomic, weak, readwrite) Player *picker;
 @property (nonatomic, weak, readwrite) Player *partner;
 @property (nonatomic) Boolean pickersWon;
-@property (nonatomic, readwrite) Boolean isFinished;
+@property (nonatomic) Boolean losersMadeSchneider;
 
 @end
 
@@ -37,45 +37,50 @@
         
         self.picker = picker;
         self.partner = partner;
-        self.isFinished = false;
+        self.losersMadeSchneider = true;
     }
     return self;
 }
 
-- (void)pickingTeamWon
+- (void)pickingTeamWon:(Boolean)pickersWon losersMadeSchneider:(Boolean)losersMadeSchneider
 {
-    self.isFinished = true;
-    self.pickersWon = true;
-}
-
-- (void)opposingTeamWon
-{
-    self.isFinished = true;
-    self.pickersWon = false;
+    self.pickersWon = pickersWon;
+    self.losersMadeSchneider = losersMadeSchneider;
 }
 
 - (NSInteger)scoreForPlayer:(Player *)player
 {
-    if ([self.playersSet containsObject:player]) {
-        if (self.pickersWon) {
-            if (player == self.picker) {
-                return 2;
-            } else if (player == self.partner) {
-                return 1;
-            } else {
-                return -1;
-            }
+    if (![self.playersSet containsObject:player]){
+        return 0;
+    }
+    
+    NSInteger score = [self baseScore];
+    
+    if (self.pickersWon) {
+        if (player == self.picker) {
+            return 2 * score;
+        } else if (player == self.partner) {
+            return 1 * score;
         } else {
-            if (player == self.picker) {
-                return -2;
-            } else if (player == self.partner) {
-                return -1;
-            } else {
-                return 1;
-            }
+            return -1 * score;
         }
     } else {
-       return 0;
+        if (player == self.picker) {
+            return -2 * score;
+        } else if (player == self.partner) {
+            return -1 * score;
+        } else {
+            return 1 * score;
+        }
+    }
+}
+
+- (NSInteger)baseScore
+{
+    if (self.losersMadeSchneider) {
+        return 1;
+    } else {
+        return 2;
     }
 }
 

@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HandResultViewController">
             <connections>
+                <outlet property="losersMadeSchneiderSwitch" destination="z7c-fH-swt" id="LNx-VR-Eep"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucy-4x-z8f">
-                    <rect key="frame" x="234.5" y="100" width="131" height="41"/>
+                    <rect key="frame" x="234" y="203" width="131" height="41"/>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <state key="normal" title="Pickers Won">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -25,7 +26,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZ3-CK-epN">
-                    <rect key="frame" x="214.5" y="201" width="171" height="41"/>
+                    <rect key="frame" x="214" y="284" width="171" height="41"/>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <state key="normal" title="Opponents Won">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,13 +35,26 @@
                         <action selector="opponentsWon:" destination="-1" eventType="touchUpInside" id="PP0-ao-TAj"/>
                     </connections>
                 </button>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z7c-fH-swt">
+                    <rect key="frame" x="146" y="116" width="51" height="31"/>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Losers Made Schneider" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mk-b2-wG1">
+                    <rect key="frame" x="230" y="120" width="200.5" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Ucy-4x-z8f" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="5bF-mv-BoQ"/>
+                <constraint firstAttribute="centerX" secondItem="4mk-b2-wG1" secondAttribute="centerX" constant="-30" id="3sn-cp-Mom"/>
+                <constraint firstItem="4mk-b2-wG1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="5jv-pR-xgg"/>
+                <constraint firstItem="Ucy-4x-z8f" firstAttribute="top" secondItem="4mk-b2-wG1" secondAttribute="bottom" constant="60" id="UkL-8H-ZZa"/>
                 <constraint firstAttribute="centerX" secondItem="GZ3-CK-epN" secondAttribute="centerX" id="ZpY-PT-Awe"/>
                 <constraint firstAttribute="centerX" secondItem="Ucy-4x-z8f" secondAttribute="centerX" id="bNv-et-fnF"/>
-                <constraint firstItem="GZ3-CK-epN" firstAttribute="top" secondItem="Ucy-4x-z8f" secondAttribute="bottom" constant="60" id="fbR-U5-2bA"/>
+                <constraint firstItem="z7c-fH-swt" firstAttribute="centerY" secondItem="4mk-b2-wG1" secondAttribute="centerY" id="f62-HF-gyC"/>
+                <constraint firstItem="GZ3-CK-epN" firstAttribute="top" secondItem="Ucy-4x-z8f" secondAttribute="bottom" constant="40" id="fbR-U5-2bA"/>
+                <constraint firstItem="4mk-b2-wG1" firstAttribute="leading" secondItem="z7c-fH-swt" secondAttribute="trailing" constant="35" id="sza-PD-mts"/>
             </constraints>
         </view>
     </objects>
